@@ -208,6 +208,8 @@ void main() {
   print("ปีเกิด (ประมาณ): ${2026 - studentAge}");
 }
 ```
+<img width="2352" height="990" alt="image" src="https://github.com/user-attachments/assets/6fbb5a59-f877-4ce3-8c75-49bd81bebf0e" />
+
 
 **ขั้นตอนที่ 3** กด **Run** ตรวจสอบผลลัพธ์ที่ได้
 
@@ -224,6 +226,8 @@ void main() {
   print("ความยาว: ${nickname?.length}");       // → 3
   print("ตัวพิมพ์ใหญ่: ${nickname?.toUpperCase()}"); // → ชาย
 ```
+<img width="2982" height="1606" alt="image" src="https://github.com/user-attachments/assets/6ed2a954-e392-40a9-a6d6-5870cd0e77fd" />
+
 
 **ขั้นตอนที่ 5** กด Run อีกครั้ง สังเกตผลลัพธ์ที่เพิ่มขึ้น
 
