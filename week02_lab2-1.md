@@ -278,10 +278,43 @@ void main() {
 ```
 **บันทึกผลการทดลอง: บันทึกโค้ดคำสั่งที่ได้**
 ```dart
-// บันทึกโค้ดในส่วนนี้
+void main() {
+  // 1. ข้อมูลเริ่มต้น (สมมติข้อมูลเริ่มต้นสำหรับทำโจทย์)
+  List<String> courses = ['Mobile Dev', 'Web Dev', 'AI', 'UX/UI'];
+  Map<String, int> courseScores = {
+    'Mobile Dev': 85,
+    'Web Dev': 90,
+    'AI': 92,
+    'UX/UI': 75
+  };
 
+  // --- เริ่มแก้ไขและเพิ่มเติมโค้ดตรงนี้ ---
+
+  // ข้อ 1: เพิ่มรายวิชา "Database" ที่มีคะแนน 88
+  courses.add('Database');
+  courseScores['Database'] = 88;
+
+  // ข้อ 2: หาวิชาที่มีคะแนนสูงสุดโดยใช้ courseScores.entries และ .reduce()
+  var highestCourse = courseScores.entries.reduce((current, next) {
+    return current.value > next.value ? current : next;
+  });
+  print('วิชาที่ได้คะแนนสูงสุด: ${highestCourse.key} (${highestCourse.value} คะแนน)');
+
+  // ข้อ 3: นับจำนวนวิชาที่ได้คะแนน >= 90
+  int countTopScores = courseScores.values.where((score) => score >= 90).length;
+  print('จำนวนวิชาที่ได้ >= 90: $countTopScores วิชา');
+
+  // ข้อ 4: สร้าง Set<String> ชื่อ passedCourses ที่เก็บเฉพาะวิชาที่ได้คะแนน >= 80
+  Set<String> passedCourses = courseScores.entries
+      .where((entry) => entry.value >= 80)
+      .map((entry) => entry.key)
+      .toSet();
+  print('วิชาที่ผ่าน: $passedCourses');
+}
 
 ```
+<img width="2772" height="1428" alt="image" src="https://github.com/user-attachments/assets/54e3ca21-15a6-4610-96fc-36493939383c" />
+
 ---
 
 ## ส่วนที่ 2 — ทฤษฎีและการทดลอง: Functions
@@ -489,6 +522,8 @@ void main() {
 ```
 
 **ขั้นตอนที่ 2** กด Run สังเกตผลลัพธ์
+<img width="2776" height="1506" alt="image" src="https://github.com/user-attachments/assets/715a2195-7391-43db-ac3e-0818eb443f37" />
+
 
 **ขั้นตอนที่ 3** ทดลองเปลี่ยนค่า `gpa` ในแต่ละ `printStudent()` เพื่อดูว่า Label เปลี่ยนอย่างไร
 
@@ -548,6 +583,8 @@ void main() {
 ```
 
 **ขั้นตอนที่ 2** กด Run และอ่านผลลัพธ์ทุกส่วน
+<img width="2952" height="1528" alt="image" src="https://github.com/user-attachments/assets/d4893d2c-23b4-44f0-81d2-dca09356412c" />
+
 
 **ขั้นตอนที่ 3** เพิ่มโค้ดต่อท้ายใน `main()` เพื่อกรองนักศึกษาเฉพาะคณะ "วิศวกรรม" แล้วแสดงผล
 
@@ -562,6 +599,7 @@ void main() {
     print("  ${s["name"]}: ${s["gpa"]}");
   }
 ```
+<img width="2870" height="1526" alt="image" src="https://github.com/user-attachments/assets/ec06d2dd-5061-417c-a573-98a2a72ab756" />
 
 ---
 
