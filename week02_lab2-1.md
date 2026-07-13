@@ -208,10 +208,9 @@ void main() {
   print("ปีเกิด (ประมาณ): ${2026 - studentAge}");
 }
 ```
-<img width="2352" height="990" alt="image" src="https://github.com/user-attachments/assets/6fbb5a59-f877-4ce3-8c75-49bd81bebf0e" />
-
 
 **ขั้นตอนที่ 3** กด **Run** ตรวจสอบผลลัพธ์ที่ได้
+<img width="2352" height="990" alt="image" src="https://github.com/user-attachments/assets/6fbb5a59-f877-4ce3-8c75-49bd81bebf0e" />
 
 **ขั้นตอนที่ 4** เพิ่มโค้ดต่อไปนี้ **ต่อท้าย** ภายใน `main()` ก่อนปิด `}`
 
@@ -226,10 +225,10 @@ void main() {
   print("ความยาว: ${nickname?.length}");       // → 3
   print("ตัวพิมพ์ใหญ่: ${nickname?.toUpperCase()}"); // → ชาย
 ```
-<img width="2982" height="1606" alt="image" src="https://github.com/user-attachments/assets/6ed2a954-e392-40a9-a6d6-5870cd0e77fd" />
 
 
 **ขั้นตอนที่ 5** กด Run อีกครั้ง สังเกตผลลัพธ์ที่เพิ่มขึ้น
+<img width="3004" height="1296" alt="image" src="https://github.com/user-attachments/assets/27dc8b91-67c8-4a12-89c7-70af7bd24f80" />
 
 **ขั้นตอนที่ 6** เพิ่มโค้ด Collections ต่อท้าย
 
@@ -256,8 +255,10 @@ void main() {
   print("คะแนนเฉลี่ย: ${avg.toStringAsFixed(2)}");
 ```
 
+
 **ขั้นตอนที่ 7** กด Run และบันทึกผลลัพธ์ทั้งหมด
 
+<img width="3022" height="1344" alt="image" src="https://github.com/user-attachments/assets/ac20dedf-6dd3-4cf6-a11d-6c52cc652f95" />
 ---
 
 ### 🎯 โจทย์ฝึกทำ 1.1 — แก้ไขและเพิ่มเติมโค้ดด้วยตนเอง
