@@ -613,10 +613,90 @@ void main() {
 
 **บันทึกผลการทดลอง: บันทึกโค้ดคำสั่งที่ได้**
 ```dart
-// บันทึกโค้ดในส่วนนี้
+class Student {
+  String name;
+  String faculty;
+  double gpa;
 
+  Student(this.name, this.faculty, this.gpa);
+
+  @override
+  String toString() {
+    return '$name (GPA: $gpa)';
+  }
+}
+
+// 1. Function หาชื่อนักศึกษาที่ GPA สูงสุดในคณะที่ระบุ
+String? findTopStudentByFaculty(List<Student> students, String faculty) {
+  // กรองเฉพาะนักศึกษาในคณะที่ระบุ
+  var studentsInFaculty = students.where((s) => s.faculty == faculty).toList();
+  
+  if (studentsInFaculty.isEmpty) {
+    return "ไม่พบข้อมูลนักศึกษาในคณะนี้";
+  }
+
+  // เรียงลำดับจาก GPA สูงไปต่ำ แล้วคืนค่าชื่อคนแรก
+  studentsInFaculty.sort((a, b) => b.gpa.compareTo(a.gpa));
+  return studentsInFaculty.first.name;
+}
+
+// 2. Function จัดกลุ่มนักศึกษาตามคณะ
+Map<String, List<Student>> groupByFaculty(List<Student> students) {
+  Map<String, List<Student>> grouped = {};
+  
+  for (var student in students) {
+    if (!grouped.containsKey(student.faculty)) {
+      grouped[student.faculty] = [];
+    }
+    grouped[student.faculty]!.add(student);
+  }
+  
+  return grouped;
+}
+
+void main() {
+  // ข้อมูลจำลองอ้างอิงจากการทดลอง
+  List<Student> students = [
+    Student("Krittinai", "Engineering", 3.85),
+    Student("Nawapon", "Engineering", 3.40),
+    Student("Alice", "Science", 3.92),
+    Student("Bob", "Science", 3.15),
+    Student("Charlie", "Engineering", 3.95),
+    Student("David", "Business", 3.60),
+    Student("Eve", "Business", 3.80),
+  ];
+
+  print("--- ผลการทดสอบ findTopStudentByFaculty ---");
+  String targetFaculty = "Engineering";
+  String? topStudent = findTopStudentByFaculty(students, targetFaculty);
+  print("นักศึกษาที่ได้ GPA สูงสุดในคณะ $targetFaculty คือ: $topStudent");
+  print("");
+
+  print("--- ผลการทดสอบ groupByFaculty ---");
+  Map<String, List<Student>> groupedStudents = groupByFaculty(students);
+  groupedStudents.forEach((faculty, studentList) {
+    print("คณะ $faculty:");
+    for (var student in studentList) {
+      print("  - ${student.name} (GPA: ${student.gpa})");
+    }
+  });
+  print("");
+
+  print("--- ผลการเรียงลำดับและแสดง Top 3 GPA ---");
+  // 3. ใช้ sort() เรียงนักศึกษาตาม GPA จากสูงไปต่ำ
+  // สร้าง List ใหม่เพื่อไม่ให้กระทบกับ List ต้นฉบับ
+  List<Student> sortedStudents = List.from(students);
+  sortedStudents.sort((a, b) => b.gpa.compareTo(a.gpa));
+
+  // พิมพ์ข้อมูลนักศึกษาที่มี GPA สูงสุด 3 อันดับแรก
+  for (int i = 0; i < 3 && i < sortedStudents.length; i++) {
+    print("อันดับ ${i + 1}: ${sortedStudents[i].name} - GPA: ${sortedStudents[i].gpa} (คณะ ${sortedStudents[i].faculty})");
+  }
+}
 
 ```
+<img width="3012" height="1502" alt="image" src="https://github.com/user-attachments/assets/af6d7085-e752-4df8-920e-f02c3af74a4b" />
+
 ---
 
 ## ส่วนที่ 3 — ทฤษฎีและการทดลอง: OOP
